@@ -5,8 +5,25 @@ using UnityEngine;
 public class DestroyByContact : MonoBehaviour {
     public GameObject explosion;
     public GameObject playerExplosion;
-    private void OnTriggerEnter(Collider other)
+    public int scoreValue;
+    private GameController gameController;
+
+    private void Start()
     {
+        GameObject gameControllerObject = GameObject.FindGameObjectWithTag("GameController");
+        if (null != gameControllerObject)
+        {
+            gameController = gameControllerObject.GetComponent<GameController>();
+        }
+        if (null == gameController)
+        {
+            Debug.Log("Cannot find 'GameController' script");
+        }
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {        
         if (other.tag == "Boundry")
         {
             return;
@@ -15,9 +32,10 @@ public class DestroyByContact : MonoBehaviour {
         if (other.tag == "Player")
         {
             Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
+            gameController.GameOver();
         }
         Destroy(other.gameObject);
         Destroy(gameObject);
-        
+        gameController.AddScore(scoreValue);
     }
 }

@@ -169,9 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 2}
   playerExplosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 2}
-  explosionSound: {fileID: 8300000, guid: 3dc7455402dfa462b89a4bbd513955e9, type: 3}
-  playerExplosionSound: {fileID: 8300000, guid: a019ae3af8e864616b85773c509f5285,
-    type: 3}
+  scoreValue: 10
 --- !u!136 &136427495924120602
 CapsuleCollider:
   m_ObjectHideFlags: 1
